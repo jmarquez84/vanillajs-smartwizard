@@ -1,0 +1,82 @@
+{
+  "name": "vanillajs-smartwizard",
+  "title": "VanillaJS Smart Wizard",
+  "version": "1.0.0",
+  "author": {
+    "name": "José Jorge Márquez Gómez",
+    "email": "jjmg84@gmail.com"
+  },
+  "description": "The awesome step wizard plugin in pure VanillaJS",
+  "homepage": "https://jmarquez84.github.io/vanillajs-smartwizard",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "José Jorge Márquez Gómez",
+      "email": "jjmg84@gmail.com"
+    },
+    {
+      "name": "Dipu Raj",
+      "email": "hello.techlab@gmail.com"
+    }
+  ],
+  "main": "./dist/js/vanillajs.smartWizard.min.js",
+  "style": "./dist/css/vanillajs.smartWizard.min.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmarquez84/vanillajs-smartwizard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jmarquez84/vanillajs-smartwizard/issues"
+  },
+  "keywords": [
+    "VanillaJS",
+    "Wizard",
+    "Tabs",
+    "Steps",
+    "Bootstrap",
+    "Plugin",
+    "Step",
+    "ui",
+    "Javascript",
+    "Tabs"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/js/vanillajs.smartWizard.min.js",
+      "require": "./dist/js/vanillajs.smartWizard.min.js"
+    },
+    "./css": "./dist/css/vanillajs.smartWizard.min.css",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cpr dist docs/public/examples/libs --overwrite",
+    "preview": "vite preview",
+    "lint": "eslint 'src/**/*.js'",
+    "lint:fix": "eslint 'src/**/*.js' --fix",
+    "test": "vitest",
+    "start": "eslint 'src/**/*.js' && vite build && cpr dist docs/public/examples/libs --overwrite && vite",
+    "docs:dev": "cpr dist docs/public/examples/libs --overwrite && vitepress dev docs",
+    "docs:build": "cpr dist docs/public/examples/libs --overwrite && vitepress build docs",
+    "docs:preview": "cpr dist docs/public/examples/libs --overwrite && vitepress preview docs"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/eslint-parser": "^7.28.0",
+    "@babel/preset-env": "^7.28.3",
+    "@eslint/css": "^0.10.0",
+    "@eslint/js": "^9.34.0",
+    "autoprefixer": "^10.4.21",
+    "browser-sync": "^3.0.4",
+    "cpr": "^3.0.1",
+    "del": "^8.0.0",
+    "eslint": "^9.34.0",
+    "globals": "^16.3.0",
+    "jsdom": "^24.1.0",
+    "postcss": "^8.4.39",
+    "sass": "^1.77.8",
+    "vite": "^5.3.5",
+    "vitepress": "^1.6.4",
+    "vitest": "^2.0.4"
+  }
+}

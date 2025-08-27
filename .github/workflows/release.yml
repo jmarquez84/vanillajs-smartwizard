@@ -1,0 +1,56 @@
+# .github/workflows/release.yml
+
+name: Create Release
+
+# Se activa cuando se sube un nuevo tag, siguiendo el patrón de versionado
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  build-and-release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Get Changelog Entry
+        id: get_changelog
+        run: |
+          # Extrae el número de la versión del tag
+          VERSION=${GITHUB_REF#refs/tags/}
+          # Usa sed para encontrar y extraer la sección de la versión actual del CHANGELOG
+          # El comando busca el encabezado de la versión y extrae todo hasta el siguiente encabezado
+          CHANGELOG_ENTRY=$(sed -n "/^## \[$VERSION\]/,\$p" CHANGELOG.md | sed '1d; /^## \[/q' | sed '$d')
+
+          # Si el comando sed no encuentra la versión o el formato es incorrecto, fallará.
+          if [ -z "$CHANGELOG_ENTRY" ]; then
+            echo "Error: Could not find changelog entry for version $VERSION. Please ensure the format in CHANGELOG.md is '## [vX.Y.Z]'."
+            exit 1
+          fi
+
+          # Guarda la entrada del changelog en una variable de entorno
+          echo "CHANGELOG<<EOF" >> $GITHUB_ENV
+          echo "$CHANGELOG_ENTRY" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/js/vanillajs.smartWizard.min.js
+            dist/css/vanillajs.smartWizard.min.css
+          body: ${{ env.CHANGELOG }}

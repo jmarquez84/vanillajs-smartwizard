@@ -1,0 +1,33 @@
+{
+    "name": "jmarquez84/vanillajs-smartwizard",
+    "description": "The awesome VanillaJS step wizard plugin",
+    "homepage": "https://jmarquez84.github.io/vanillajs-smartwizard",
+    "license": "MIT",
+    "support": {
+        "source": "https://github.com/jmarquez84/vanillajs-smartwizard",
+        "issues": "https://github.com/jmarquez84/vanillajs-smartwizard/issues",
+        "docs": "https://jmarquez84.github.io/vanillajs-smartwizard"
+        },
+    "keywords": [
+        "bootstrap",
+        "wizard",
+        "step",
+        "ui",
+        "vanillajs",
+        "javascript",
+        "wizard plugin"
+    ],
+    "authors": [
+        {
+            "name": "José Jorge Márquez Gómez",
+            "email": "jjmg84@gmail.com"
+        },        
+        {
+            "name": "Dipu Raj",
+            "email": "hello.techlab@gmail.com",
+            "homepage": "http://dipu.me"
+        }
+    ],
+    "require": {
+    }
+}

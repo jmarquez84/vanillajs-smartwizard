@@ -1,0 +1,33 @@
+/*!
+* VanillaJS SmartWizard v1.x
+* The awesome step wizard plugin for VanillaJS
+* https://github.com/jmarquez84/vanillajs-smartwizard
+*
+* Create by José Jorge Márquez Gómez (https://github.com/jmarquez84) Original idea by Dipu Raj (http://dipu.me)
+*
+* Licensed under the terms of the MIT License
+* https://github.com/jmarquez84/vanillajs-smartwizard/blob/master/LICENSE
+*/
+
+@charset 'utf-8';
+
+/* Root */
+@use 'core/_root';
+
+/* Base Styles */
+@use 'core/_base';
+
+/* Theme: Basic */
+@use 'themes/_basic';
+
+/* Theme: Arrows */
+@use 'themes/_arrows';
+
+/* Theme: Dots */
+@use 'themes/_dots';
+
+/* Theme: Round */
+@use 'themes/_round';
+
+/* Theme: Verical */
+@use 'themes/_square';

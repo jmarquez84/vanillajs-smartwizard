@@ -1,7 +1,7 @@
 {
   "name": "vanillajs-smartwizard",
   "title": "VanillaJS Smart Wizard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "José Jorge Márquez Gómez",
     "email": "jjmg84@gmail.com"
@@ -19,8 +19,11 @@
       "email": "hello.techlab@gmail.com"
     }
   ],
-  "main": "./dist/js/vanillajs.smartWizard.min.js",
+  "main": "./dist/js/vanillajs.smartWizard.umd.min.js",
+  "module": "./dist/js/vanillajs.smartWizard.esm.min.js",
   "style": "./dist/css/vanillajs.smartWizard.min.css",
+  "unpkg": "./dist/js/vanillajs.smartWizard.umd.min.js",
+  "jsdelivr": "./dist/js/vanillajs.smartWizard.esm.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/jmarquez84/vanillajs-smartwizard.git"
@@ -42,23 +45,23 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/js/vanillajs.smartWizard.min.js",
-      "require": "./dist/js/vanillajs.smartWizard.min.js"
+      "import": "./dist/js/vanillajs.smartWizard.esm.min.js",
+      "require": "./dist/js/vanillajs.smartWizard.umd.min.js"
     },
     "./css": "./dist/css/vanillajs.smartWizard.min.css",
     "./package.json": "./package.json"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cpr dist docs/public/examples/libs --overwrite",
+    "build": "vite build && cpr dist docs/public/examples/dist --overwrite",
     "preview": "vite preview",
     "lint": "eslint 'src/**/*.js'",
     "lint:fix": "eslint 'src/**/*.js' --fix",
     "test": "vitest",
-    "start": "eslint 'src/**/*.js' && vite build && cpr dist docs/public/examples/libs --overwrite && vite",
-    "docs:dev": "cpr dist docs/public/examples/libs --overwrite && vitepress dev docs",
-    "docs:build": "cpr dist docs/public/examples/libs --overwrite && vitepress build docs",
-    "docs:preview": "cpr dist docs/public/examples/libs --overwrite && vitepress preview docs"
+    "start": "eslint 'src/**/*.js' && vite build && cpr dist docs/public/examples/dist --overwrite && vite",
+    "docs:dev": "cpr dist docs/public/examples/dist --overwrite && vitepress dev docs",
+    "docs:build": "cpr dist docs/public/examples/dist --overwrite && vitepress build docs",
+    "docs:preview": "cpr dist docs/public/examples/dist --overwrite && vitepress preview docs"
   },
   "devDependencies": {
     "@babel/core": "^7.28.3",

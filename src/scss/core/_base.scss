@@ -41,7 +41,7 @@
         background-color: var(--#{$var-prefix}toolbar-btn-background-color);
         border: 1px solid var(--#{$var-prefix}toolbar-btn-background-color);
 
-        &.disabled, &:disabled {
+        &.sw-disabled, &:sw-disabled {
           opacity: .65;
         }
       }
@@ -73,7 +73,7 @@
         text-decoration: none;
 
         &:hover,
-        &:active,
+        &:sw-active,
         &:focus {
           text-decoration: none;
         }
@@ -82,12 +82,12 @@
           border: 0;
         }
 
-        &.disabled {
+        &.sw-disabled {
           pointer-events: none;
           cursor: not-allowed;
         }
 
-        &.hidden {
+        &.sw-hidden {
           display: none;
           visibility: none;
         }

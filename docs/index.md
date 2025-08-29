@@ -18,6 +18,12 @@ features:
   - title: JQuery FREE
     details: The project has been completely rewritten to not depend on JQuery! This makes it lighter, faster, and more modern.
     icon: 🚀
+  - title: Requirements on steps
+    details: Field validation on movement with the possibility of custom events and specific functions for detected errors.
+    icon: ✅
+  - title: Compatible ESM and CommonJS
+    details: Compatible with ESM and CommonJS and easy to install and use.
+    icon: 🤝
   - title: Easy to Implement
     details: Minimal HTML required.
     icon: ✨

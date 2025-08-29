@@ -54,7 +54,7 @@
         z-index: 1;
       }
       
-      &.default {
+      &.sw-default {
         color: var(--#{$var-prefix}anchor-default-secondary-color);
         background-color: var(--#{$var-prefix}anchor-default-primary-color);
         cursor: not-allowed;
@@ -71,7 +71,7 @@
         }
       }
 
-      &.active {
+      &.sw-active {
         color: var(--#{$var-prefix}anchor-active-secondary-color) !important;
         border-color: var(--#{$var-prefix}anchor-active-primary-color);
         background-color: var(--#{$var-prefix}anchor-active-primary-color);
@@ -89,7 +89,7 @@
         }
       }
 
-      &.done {
+      &.sw-done {
         color: var(--#{$var-prefix}anchor-done-secondary-color);
         border-color: var(--#{$var-prefix}anchor-done-primary-color);
         background-color: var(--#{$var-prefix}anchor-done-primary-color);        
@@ -107,7 +107,7 @@
         }
       }
 
-      &.disabled {
+      &.sw-disabled {
         color: var(--#{$var-prefix}anchor-disabled-secondary-color);
         border-color: var(--#{$var-prefix}anchor-disabled-primary-color);
         background-color: var(--#{$var-prefix}anchor-disabled-primary-color);
@@ -124,7 +124,7 @@
         }
       }
 
-      &.error {
+      &.sw-error {
         color: var(--#{$var-prefix}anchor-error-secondary-color);
         border-color: var(--#{$var-prefix}anchor-error-primary-color);
         background-color: var(--#{$var-prefix}anchor-error-primary-color);
@@ -142,7 +142,7 @@
         }
       }
 
-      &.warning {
+      &.sw-warning {
         color: var(--#{$var-prefix}anchor-warning-secondary-color);
         border-color: var(--#{$var-prefix}anchor-warning-primary-color);
         background-color: var(--#{$var-prefix}anchor-warning-primary-color);
@@ -198,7 +198,7 @@
         border-right-width: 40px;
       }
     
-      &.default {
+      &.sw-default {
         &::after {
           border-right-color: var(--#{$var-prefix}anchor-default-primary-color);
         }
@@ -207,7 +207,7 @@
         }
       }
 
-      &.active {
+      &.sw-active {
         &::after {
           border-right-color: var(--#{$var-prefix}anchor-active-primary-color);
         }
@@ -216,7 +216,7 @@
         }
       }
 
-      &.done {
+      &.sw-done {
         &::after {
           border-right-color: var(--#{$var-prefix}anchor-done-primary-color);
         }
@@ -225,7 +225,7 @@
         }
       }
 
-      &.disabled {
+      &.sw-disabled {
         &::after {
           border-left-color: unset;
           border-right-color: var(--#{$var-prefix}anchor-disabled-primary-color);

@@ -7,24 +7,24 @@ export default defineConfig({
   build: {
     // La entrada principal de tu librería.
     lib: {
-      entry: {
-        smartWizardJS: 'src/js/vanillajs.smartWizard.js',
-        smartWizardCSS: 'src/scss/smart_wizard_all.scss'
-      },
+      entry: 'src/js/vanillajs.smartWizard.js',
       name: 'SmartWizard',
-      fileName: (format, entryName) => `${entryName}.${format}.js`
+      // Genera una salida para cada formato especificado
+      formats: ['es', 'umd'],
+      // Esto genera los archivos .js con la estructura de carpetas 'js/'
+      fileName: (format) => `js/vanillajs.smartWizard.${format}.min.js`
     },
     // Vacia el directorio de salida antes de la construcción
     emptyOutDir: true,
     // Opciones de Rollup
     rollupOptions: {
-      // Configura las salidas
       output: {
         // Mueve los archivos CSS a la carpeta dist/css
         assetFileNames: 'css/vanillajs.smartWizard.min.css',
-        format: 'es', // Formato de módulo de ES
-        entryFileNames: `js/vanillajs.smartWizard.min.js`,
-        dir: 'dist'
+        dir: 'dist',
+        globals: {
+          // Si tienes dependencias, decláralas aquí
+        }
       }
     },
     // Habilitar la minificación

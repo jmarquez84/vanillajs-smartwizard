@@ -317,136 +317,161 @@ function applyColors(colorObj) {
     }
     displayColors();
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    loadColorList();
-    displayColors();
-
-    const wizard = document.getElementById('smartwizard');
-
-    // External Button Events
-    document.getElementById("reset-btn").addEventListener("click", function() {
-        wizard.smartWizard.reset();
-    });
-
-    document.getElementById("prev-btn").addEventListener("click", function() {
-        wizard.smartWizard.prev();
-    });
-
-    document.getElementById("next-btn").addEventListener("click", function() {
-        wizard.smartWizard.next();
-    });
-
-    // Demo Button Events
-    document.getElementById("btn-go-to").addEventListener("click", function() {
-        const stepIndex = document.getElementById("got_to_step").value - 1;
-        wizard.smartWizard.goToStep(stepIndex, false);
-    });
-
-    document.getElementById("btn-go-to-forced").addEventListener("click", function() {
-        const stepIndex = document.getElementById("got_to_step").value - 1;
-        wizard.smartWizard.goToStep(stepIndex, true);
-    });
-
-    document.querySelectorAll(".option-setting-checkbox").forEach(checkbox => {
-        checkbox.addEventListener("change", function() {
-            let val = this.checked;
-            let options = {};
-            switch(this.id) {
-                case 'back_button_support':
-                    options = { backButtonSupport: val };
-                    break;
-                case 'key_navigation':
-                    options = { keyboard: { keyNavigation: val } };
-                    break;
-                case 'is_justified':
-                    options = { justified: val };
-                    break;
-                case 'autoAdjustHeight':
-                    options = { autoAdjustHeight: val };
-                    break;
-                case 'anchor_navigation':
-                    options = { anchor: { enableNavigation: val } };
-                    break;
-                case 'enableNavigationAlways':
-                    options = { anchor: { enableNavigationAlways: val } };
-                    break;
-                case 'enableDoneState':
-                    options = { anchor: { enableDoneState: val } };
-                    break;
-                case 'markPreviousStepsAsDone':
-                    options = { anchor: { markPreviousStepsAsDone: val } };
-                    break;
-                case 'unDoneOnBackNavigation':
-                    options = { anchor: { unDoneOnBackNavigation: val } };
-                    break;
-                case 'enableDoneStateNavigation':
-                    options = { anchor: { enableDoneStateNavigation: val } };
-                    break;
-                case 'toolbar-showNextButton':
-                    options = { toolbar: { showNextButton: val } };
-                    break;
-                case 'toolbar-showPreviousButton':
-                    options = { toolbar: { showPreviousButton: val } };
-                    break;
+async function includeHTML(containerId, filePath) {
+    fetch(filePath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-            wizard.smartWizard.setOptions(options);
+            return response.text();
+        })
+        .then(html => {
+            const container = document.getElementById(containerId);
+            if (container) {
+                // En lugar de reemplazar el contenido, lo añade al final
+                container.insertAdjacentHTML('beforeend', html);
+            }
+            return true;
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+            return false;
         });
-    });
+}
+document.addEventListener('DOMContentLoaded', function() {
+    includeHTML('sidebar', './sidebar/sidebar.html').then(() => {
+      setTimeout(() => {
+      loadColorList();
+      displayColors();
 
-    document.querySelectorAll('input[type=radio][name=toolbar-position]').forEach(radio => {
-        radio.addEventListener('change', function() {
-            const options = { toolbar: { position: this.value } };
-            wizard.smartWizard.setOptions(options);
-        });
-    });
+      const wizard = document.getElementById('smartwizard');
 
-    document.getElementById("animation").addEventListener("change", function() {
-        const anim = this.value;
-        const cssAnim = cssAnimationList[anim];
-        let options = {};
+      // External Button Events
+      document.getElementById("reset-btn").addEventListener("click", function() {
+          wizard.smartWizard.reset();
+      });
 
-        if (cssAnim) {
-            options = {
-                transition: {
-                    animation: 'css',
-                    ...cssAnim
-                },
-            };
-        } else {
-            options = {
-                transition: {
-                    animation: anim
-                },
-            };
-        }
-        wizard.smartWizard.setOptions(options);
-    });
+      document.getElementById("prev-btn").addEventListener("click", function() {
+          wizard.smartWizard.prev();
+      });
 
-    document.getElementById("theme_selector").addEventListener("change", function() {
-        const options = { theme: this.value };
-        wizard.smartWizard.setOptions(options);
-    });
+      document.getElementById("next-btn").addEventListener("click", function() {
+          wizard.smartWizard.next();
+      });
 
-    document.querySelectorAll(".color-picker").forEach(picker => {
-        picker.addEventListener("change", function() {
-            document.documentElement.style.setProperty(this.id, this.value);
-        });
-    });
+      // Demo Button Events
+      document.getElementById("btn-go-to").addEventListener("click", function() {
+          const stepIndex = document.getElementById("got_to_step").value - 1;
+          wizard.smartWizard.goToStep(stepIndex, false);
+      });
 
-    document.getElementById("btn-state-set").addEventListener("click", function() {
-        const stepIndex = document.getElementById("state_step_selection").value - 1;
-        const stateName = document.getElementById("state_selection").value;
-        wizard.smartWizard.setState([stepIndex], stateName);
-    });
+      document.getElementById("btn-go-to-forced").addEventListener("click", function() {
+          const stepIndex = document.getElementById("got_to_step").value - 1;
+          wizard.smartWizard.goToStep(stepIndex, true);
+      });
 
-    document.getElementById("btn-state-unset").addEventListener("click", function() {
-        const stepIndex = document.getElementById("state_step_selection").value - 1;
-        const stateName = document.getElementById("state_selection").value;
-        wizard.smartWizard.unsetState([stepIndex], stateName);
-    });
+      document.querySelectorAll(".option-setting-checkbox").forEach(checkbox => {
+          checkbox.addEventListener("change", function() {
+              let val = this.checked;
+              let options = {};
+              switch(this.id) {
+                  case 'back_button_support':
+                      options = { backButtonSupport: val };
+                      break;
+                  case 'key_navigation':
+                      options = { keyboard: { keyNavigation: val } };
+                      break;
+                  case 'is_justified':
+                      options = { justified: val };
+                      break;
+                  case 'autoAdjustHeight':
+                      options = { autoAdjustHeight: val };
+                      break;
+                  case 'anchor_navigation':
+                      options = { anchor: { enableNavigation: val } };
+                      break;
+                  case 'enableNavigationAlways':
+                      options = { anchor: { enableNavigationAlways: val } };
+                      break;
+                  case 'enableDoneState':
+                      options = { anchor: { enableDoneState: val } };
+                      break;
+                  case 'markPreviousStepsAsDone':
+                      options = { anchor: { markPreviousStepsAsDone: val } };
+                      break;
+                  case 'unDoneOnBackNavigation':
+                      options = { anchor: { unDoneOnBackNavigation: val } };
+                      break;
+                  case 'enableDoneStateNavigation':
+                      options = { anchor: { enableDoneStateNavigation: val } };
+                      break;
+                  case 'toolbar-showNextButton':
+                      options = { toolbar: { showNextButton: val } };
+                      break;
+                  case 'toolbar-showPreviousButton':
+                      options = { toolbar: { showPreviousButton: val } };
+                      break;
+              }
+              wizard.smartWizard.setOptions(options);
+          });
+      });
 
-    document.getElementById("theme_colors").addEventListener("change", function() {
-        applyColors(this.options[this.selectedIndex].dataset.colors);
-    });
+      document.querySelectorAll('input[type=radio][name=toolbar-position]').forEach(radio => {
+          radio.addEventListener('change', function() {
+              const options = { toolbar: { position: this.value } };
+              wizard.smartWizard.setOptions(options);
+          });
+      });
+
+      document.getElementById("animation").addEventListener("change", function() {
+          const anim = this.value;
+          const cssAnim = cssAnimationList[anim];
+          let options = {};
+
+          if (cssAnim) {
+              options = {
+                  transition: {
+                      animation: 'css',
+                      ...cssAnim
+                  },
+              };
+          } else {
+              options = {
+                  transition: {
+                      animation: anim
+                  },
+              };
+          }
+          wizard.smartWizard.setOptions(options);
+      });
+
+      document.getElementById("theme_selector").addEventListener("change", function() {
+          const options = { theme: this.value };
+          wizard.smartWizard.setOptions(options);
+      });
+
+      document.querySelectorAll(".color-picker").forEach(picker => {
+          picker.addEventListener("change", function() {
+              document.documentElement.style.setProperty(this.id, this.value);
+          });
+      });
+
+      document.getElementById("btn-state-set").addEventListener("click", function() {
+          const stepIndex = document.getElementById("state_step_selection").value - 1;
+          const stateName = document.getElementById("state_selection").value;
+          wizard.smartWizard.setState([stepIndex], stateName);
+      });
+
+      document.getElementById("btn-state-unset").addEventListener("click", function() {
+          const stepIndex = document.getElementById("state_step_selection").value - 1;
+          const stateName = document.getElementById("state_selection").value;
+          wizard.smartWizard.unsetState([stepIndex], stateName);
+      });
+
+      document.getElementById("theme_colors").addEventListener("change", function() {
+          applyColors(this.options[this.selectedIndex].dataset.colors);
+      });
+
+      }, 1000);
+    })
 });

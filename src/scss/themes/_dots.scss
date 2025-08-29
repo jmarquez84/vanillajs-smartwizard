@@ -85,7 +85,7 @@
         }
       }
 
-      &.default {
+      &.sw-default {
         color: var(--#{$var-prefix}anchor-default-secondary-color);
         cursor: not-allowed;
 
@@ -98,7 +98,7 @@
         }
       }
 
-      &.active {
+      &.sw-active {
         color: var(--#{$var-prefix}anchor-active-primary-color) !important;
         cursor: pointer;
 
@@ -111,7 +111,7 @@
         }
       }
 
-      &.done {
+      &.sw-done {
         color: var(--#{$var-prefix}anchor-done-primary-color);
         cursor: pointer;
 
@@ -124,7 +124,7 @@
         }
       }
 
-      &.disabled {
+      &.sw-disabled {
         color: var(--#{$var-prefix}anchor-disabled-primary-color);
 
         & > .num {
@@ -136,7 +136,7 @@
         }
       }
 
-      &.error {
+      &.sw-error {
         color: var(--#{$var-prefix}anchor-error-primary-color) !important;
         cursor: pointer;
 
@@ -149,7 +149,7 @@
         }
       }
 
-      &.warning {
+      &.sw-warning {
         color: var(--#{$var-prefix}anchor-warning-primary-color) !important;
         cursor: pointer;
         

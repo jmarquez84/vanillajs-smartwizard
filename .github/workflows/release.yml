@@ -51,6 +51,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            dist/js/vanillajs.smartWizard.min.js
+            dist/js/vanillajs.smartWizard.es.min.js
+            dist/js/vanillajs.smartWizard.umd.min.js
             dist/css/vanillajs.smartWizard.min.css
           body: ${{ env.CHANGELOG }}

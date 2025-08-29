@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.0.2] - 2025-08-29
+### Changed
+Update README 
+
 ## [v1.0.1] - 2025-08-29
 ### Changed
 - CSS: Add different name of clases for containers and errors to prevent colissions with other frameworks.

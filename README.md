@@ -1,58 +1,59 @@
 # VanillaJS Smart Wizard
+
 ### The awesome step wizard plugin for VanillaJS
 
 [![npm version](https://badge.fury.io/js/vanillajs-smartwizard.svg)](https://www.npmjs.com/package/vanillajs-smartwizard)
 [![jsDelivr Hits](https://data.jsdelivr.com/v1/package/npm/vanillajs-smartwizard/badge?style=rounded)](https://www.jsdelivr.com/package/npm/vanillajs-smartwizard)
-[![Npm Downloadsl](https://badgen.net/npm/dm/vanillajs-smartwizard?icon=npm)](https://www.npmjs.com/package/vanillajs-smartwizard)
+[![Npm Downloads](https://badgen.net/npm/dm/vanillajs-smartwizard?icon=npm)](https://www.npmjs.com/package/vanillajs-smartwizard)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/jmarquez84/vanillajs-smartwizard/master/LICENSE)
-[![GitHub Repo](https://badgen.net/badge/icon/vanillajs-smartwizard?icon=github&label=&color=0da4d3)](https://github.com/jmarquez84/vanillajs-smartwizard)
+[![GitHub Repo](https://badgen.net/badge/icon/vanillajs-smartwizard?icon=github\&label=\&color=0da4d3)](https://github.com/jmarquez84/vanillajs-smartwizard)
 [![Donate on Paypal](https://img.shields.io/badge/PayPal-jmarquezgomez84-blue.svg)](https://www.paypal.me/jmarquezgomez84)
 
-If you want to contribute to original author click here: [Original project](https://github.com/techlab/jquery-smartwizard)
+If you want to contribute to the original author click here: [Original project](https://github.com/techlab/jquery-smartwizard)
 
-**VanillaJS Smart Wizard** es un plugin de asistente de pasos que no requiere jQuery y está escrito en JavaScript puro. Su propósito es proporcionar una interfaz de usuario ordenada, elegante y funcional para procesos como formularios, pantallas de pago y registros.
+**VanillaJS Smart Wizard** is a step wizard plugin that does not require jQuery and is written in pure JavaScript. Its purpose is to provide a clean, elegant, and functional user interface for processes such as forms, checkouts, and registrations.
 
-El proyecto ha sido reescrito por completo para eliminar la dependencia de jQuery, lo que lo hace más ligero, rápido y moderno. Es compatible con **ESM** y **CommonJS** y funciona en todos los navegadores modernos. Además, está diseñado con un enfoque responsive y es compatible con **Bootstrap**.
-
----
-
-### **Características Principales**
-
-* **Sin jQuery**: Funciona en JavaScript puro, lo que lo hace más rápido y ligero.
-* **Fácil de Implementar**: Requiere un HTML mínimo para su funcionamiento.
-* **Diseño Responsive**: Se adapta a todos los dispositivos y es compatible con Bootstrap.
-* **Validación de Campos**: Permite validar campos obligatorios al moverse entre pasos, con la posibilidad de eventos y funciones personalizadas para los errores.
-* **Transiciones**: Incluye animaciones de transición como `fade`, `slideHorizontal`, `slideVertical` y `slideSwing`.
-* **Soporte de Animaciones CSS**: Fácil de extender con animaciones personalizadas y es compatible con librerías como Animate.css.
-* **Contenido Dinámico**: Permite la integración de contenido a través de Ajax.
-* **Control Personalizable**: Incluye una barra de herramientas, barra de progreso y loader integrados.
-* **Soporte RTL**: Está preparado para idiomas que se leen de derecha a izquierda.
-* **Accesibilidad**: Proporciona controles accesibles para una mejor experiencia de usuario.
+The project has been completely rewritten to remove the jQuery dependency, making it lighter, faster, and more modern. It supports **ESM** and **CommonJS** and works in all modern browsers. Additionally, it is designed with a responsive approach and is compatible with **Bootstrap**.
 
 ---
 
-### **Instalación y Uso**
+### **Main Features**
 
-El plugin es compatible con los principales sistemas de módulos de JavaScript, lo que facilita su integración en cualquier proyecto moderno. A continuación se muestran ejemplos de inicialización para **ESM** (Módulos de ECMAScript) y **CommonJS**.
+* **No jQuery**: Works with pure JavaScript, making it faster and lighter.
+* **Easy to Implement**: Requires minimal HTML to work.
+* **Responsive Design**: Adapts to all devices and is compatible with Bootstrap.
+* **Field Validation**: Allows validating required fields when moving between steps, with the option for custom events and error handling functions.
+* **Transitions**: Includes transition animations like `fade`, `slideHorizontal`, `slideVertical`, and `slideSwing`.
+* **CSS Animation Support**: Easily extendable with custom animations and compatible with libraries like Animate.css.
+* **Dynamic Content**: Allows integration of content through Ajax.
+* **Customizable Controls**: Includes a built-in toolbar, progress bar, and loader.
+* **RTL Support**: Ready for right-to-left languages.
+* **Accessibility**: Provides accessible controls for a better user experience.
 
-#### **Inicialización con ES Modules (ESM)**
+---
 
-Para proyectos que utilizan un *bundler* como **Vite**, **Webpack** o **Rollup**, el enfoque **ESM** es el más común. Primero, asegúrate de que el plugin esté instalado en tu proyecto.
+### **Installation & Usage**
+
+The plugin is compatible with the main JavaScript module systems, making it easy to integrate into any modern project. Below are initialization examples for **ESM** (ECMAScript Modules) and **CommonJS**.
+
+#### **Initialization with ES Modules (ESM)**
+
+For projects using a *bundler* like **Vite**, **Webpack**, or **Rollup**, the **ESM** approach is the most common. First, make sure the plugin is installed in your project.
 
 ```javascript
 import SmartWizard from 'vanillajs-smartwizard';
 
-// Inicialización del asistente
+// Wizard initialization
 const wizard = new SmartWizard('#smartwizard', {
     selected: 0,
-    theme: 'arrows', // Ejemplo de tema personalizado
+    theme: 'arrows', // Example custom theme
     toolbar: {
         position: 'bottom',
     },
-    // Otras opciones...
+    // Other options...
 });
 
-// Ejemplo de uso de un método público
+// Example of using a public method
 document.getElementById('nextButton').addEventListener('click', () => {
     wizard.next();
 });
@@ -60,15 +61,15 @@ document.getElementById('nextButton').addEventListener('click', () => {
 /** Common JS **/
 const SmartWizard = require('vanillajs-smartwizard');
 
-// Asegúrate de que el HTML esté cargado antes de inicializar
+// Make sure the HTML is loaded before initializing
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicialización del asistente
+    // Wizard initialization
     const wizard = new SmartWizard('#smartwizard', {
         selected: 0,
         theme: 'arrows',
     });
 
-    // Ejemplo de uso
+    // Example of use
     document.getElementById('prevButton').addEventListener('click', () => {
         wizard.prev();
     });
@@ -77,51 +78,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ---
 
-### **Opciones de Configuración**
+### **Configuration Options**
 
-| Opción | Tipo | Valor por Defecto | Descripción |
-| :--- | :--- | :--- | :--- |
-| **`debug`** | `boolean` | `false` | Habilita los mensajes de depuración en la consola. |
-| **`initAtCreated`** | `boolean` | `true` | Si el asistente se inicializa automáticamente al crearse. |
-| **`selected`** | `number` | `0` | El índice del paso que se seleccionará al inicio. |
-| **`theme`** | `string` | `'basic'` | El tema del asistente (por ejemplo, `'basic'`). |
-| **`justified`** | `boolean` | `true` | Si los pasos de la navegación se justifican para ocupar todo el ancho. |
-| **`autoAdjustHeight`** | `boolean` | `true` | Si el asistente ajusta su altura automáticamente al contenido. |
-| **`backButtonSupport`** | `boolean` | `true` | Habilita la navegación con el botón de "atrás" del navegador. |
-| **`enableUrlHash`** | `boolean` | `true` | Habilita el uso de la URL hash para la navegación entre pasos. |
-| **`transition`** | `object` | Ver código fuente | Configuración de las animaciones de transición. Incluye `animation` (e.g., `'fade'`) y `speed` (ms). |
-| **`toolbar`** | `object` | Ver código fuente | Configuración de la barra de herramientas. Incluye `position` (`'top'`, `'bottom'`, `'both'`), `showNextButton` y `showPreviousButton`. |
-| **`keyboard`** | `object` | Ver código fuente | Configuración de la navegación por teclado. Incluye `keyNavigation`, `keyLeft` y `keyRight`. |
-| **`lang`** | `object` | Ver código fuente | Permite cambiar el texto de los botones. |
-| **`style`** | `object` | Ver código fuente | Define las clases CSS para los diferentes elementos del asistente. |
-| **`disabledSteps`** | `array` | `[]` | Array de índices de pasos que se desactivarán. |
-| **`errorSteps`** | `array` | `[]` | Array de índices de pasos que se marcarán con un estado de error. |
-| **`hiddenSteps`** | `array` | `[]` | Array de índices de pasos que se ocultarán. |
-| **`requiredField`** | `object` | Ver código fuente | Opciones para la validación de campos obligatorios. Incluye `active`, `checkOnSubmitForm`, `controls`, `classInvalid` y `functionToValidate`. |
+| Option                  | Type      | Default Value   | Description                                                                                                                          |
+| :---------------------- | :-------- | :-------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| **`debug`**             | `boolean` | `false`         | Enables debug messages in the console.                                                                                               |
+| **`initAtCreated`**     | `boolean` | `true`          | Whether the wizard initializes automatically when created.                                                                           |
+| **`selected`**          | `number`  | `0`             | The index of the step selected at start.                                                                                             |
+| **`theme`**             | `string`  | `'basic'`       | The wizard theme (e.g., `'basic'`).                                                                                                  |
+| **`justified`**         | `boolean` | `true`          | Whether navigation steps are justified to take full width.                                                                           |
+| **`autoAdjustHeight`**  | `boolean` | `true`          | Whether the wizard auto-adjusts its height to the content.                                                                           |
+| **`backButtonSupport`** | `boolean` | `true`          | Enables browser back button navigation.                                                                                              |
+| **`enableUrlHash`**     | `boolean` | `true`          | Enables using the URL hash for step navigation.                                                                                      |
+| **`transition`**        | `object`  | See source code | Transition animation settings. Includes `animation` (e.g., `'fade'`) and `speed` (ms).                                               |
+| **`toolbar`**           | `object`  | See source code | Toolbar settings. Includes `position` (`'top'`, `'bottom'`, `'both'`), `showNextButton`, and `showPreviousButton`.                   |
+| **`keyboard`**          | `object`  | See source code | Keyboard navigation settings. Includes `keyNavigation`, `keyLeft`, and `keyRight`.                                                   |
+| **`lang`**              | `object`  | See source code | Allows customizing button texts.                                                                                                     |
+| **`style`**             | `object`  | See source code | Defines CSS classes for wizard elements.                                                                                             |
+| **`disabledSteps`**     | `array`   | `[]`            | Array of step indices to disable.                                                                                                    |
+| **`errorSteps`**        | `array`   | `[]`            | Array of step indices marked with an error state.                                                                                    |
+| **`hiddenSteps`**       | `array`   | `[]`            | Array of step indices to hide.                                                                                                       |
+| **`requiredField`**     | `object`  | See source code | Options for required field validation. Includes `active`, `checkOnSubmitForm`, `controls`, `classInvalid`, and `functionToValidate`. |
 
 ---
 
-### **Métodos Públicos (API)**
+### **Public Methods (API)**
 
-| Método | Descripción |
-| :--- | :--- |
-| **`goToStep(stepIndex, force)`** | Navega al paso especificado por `stepIndex`. El parámetro opcional `force` permite forzar la navegación. |
-| **`next()`** | Navega al siguiente paso navegable. |
-| **`prev()`** | Navega al paso anterior navegable. |
-| **`reset()`** | Restablece el asistente a su estado inicial. |
-| **`setState(stepArray, state)`** | Establece un estado (e.g., `'error'`, `'done'`) a los pasos especificados en `stepArray`. |
-| **`unsetState(stepArray, state)`** | Elimina un estado de los pasos especificados. |
-| **`unsetErrors(idx)`** | Elimina el estado de error de un paso específico. |
-| **`setOptions(options)`** | Actualiza la configuración del asistente con las opciones proporcionadas. |
-| **`getOptions()`** | Devuelve la configuración actual del asistente. |
-| **`getStepInfo()`** | Devuelve un objeto con información sobre el estado actual, incluyendo el paso actual (`currentStep`) y el total de pasos (`totalSteps`). |
-| **`loader(state)`** | Muestra u oculta el loader del asistente. El parámetro `state` puede ser `'show'` o `'hide'`. |
-| **`fixHeight()`** | Fuerza el reajuste de la altura del contenedor. |
-| **`init()`** | Inicializa el asistente si `initAtCreated` es `false`. |
-| **`checkStepRequired(step)`** | Valida los campos obligatorios de un paso específico. Devuelve `true` si hay errores, `false` en caso contrario. |
-| **`checkFormRequireds()`** | Valida todos los campos obligatorios del formulario. Devuelve `true` si hay errores. |
-| **`destroy()`** | Elimina todos los eventos y la configuración, destruyendo la instancia del asistente. |
+| Method                             | Description                                                                                                       |
+| :--------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| **`goToStep(stepIndex, force)`**   | Navigates to the specified step by `stepIndex`. The optional `force` parameter forces navigation.                 |
+| **`next()`**                       | Navigates to the next available step.                                                                             |
+| **`prev()`**                       | Navigates to the previous available step.                                                                         |
+| **`reset()`**                      | Resets the wizard to its initial state.                                                                           |
+| **`setState(stepArray, state)`**   | Sets a state (e.g., `'error'`, `'done'`) for the specified steps.                                                 |
+| **`unsetState(stepArray, state)`** | Removes a state from the specified steps.                                                                         |
+| **`unsetErrors(idx)`**             | Removes the error state of a specific step.                                                                       |
+| **`setOptions(options)`**          | Updates the wizard configuration with the provided options.                                                       |
+| **`getOptions()`**                 | Returns the current wizard configuration.                                                                         |
+| **`getStepInfo()`**                | Returns an object with current state info, including current step (`currentStep`) and total steps (`totalSteps`). |
+| **`loader(state)`**                | Shows or hides the wizard loader. The `state` can be `'show'` or `'hide'`.                                        |
+| **`fixHeight()`**                  | Forces the container to readjust its height.                                                                      |
+| **`init()`**                       | Initializes the wizard if `initAtCreated` is `false`.                                                             |
+| **`checkStepRequired(step)`**      | Validates required fields of a specific step. Returns `true` if there are errors, `false` otherwise.              |
+| **`checkFormRequireds()`**         | Validates all required fields in the form. Returns `true` if there are errors.                                    |
+| **`destroy()`**                    | Removes all events and configuration, destroying the wizard instance.                                             |
 
-License
-----
+## License
+
 [MIT License](https://github.com/jmarquez84/vanillajs-smartwizard/blob/master/LICENSE)

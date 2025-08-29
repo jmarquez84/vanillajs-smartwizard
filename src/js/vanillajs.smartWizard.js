@@ -1,5 +1,5 @@
 /**
- * SmartWizard v1.0.1 - Vanilla JavaScript Version (Universal Module)
+ * SmartWizard v1.0.2 - Vanilla JavaScript Version (Universal Module)
  * The awesome step wizard plugin, converted to pure JavaScript.
  *
  * Based on the original jQuery SmartWizard by Dipu Raj (http://dipu.me)
